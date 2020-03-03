@@ -7,7 +7,17 @@ func ASTParser(text string) (*AST, error) {
 	textLen := len(text)
 	for pos := 0; pos < textLen; pos++ {
 		switch text[pos] {
+		case "<":
+			var chars []ASTChar
+			chars = append(chars, ASTChar{
+				Pos:      pos,
+				Char:     []byte(text[pos]),
+				CharType: ASTCharTypeOpeningTag,
+			})
 
+			for pos = pos; pos < textLen; pos++ {
+			}
+		default:
 		}
 	}
 

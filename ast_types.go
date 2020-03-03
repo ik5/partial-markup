@@ -30,6 +30,7 @@ const (
 	ASTCharTypeText            ASTCharType = iota // part of text
 	ASTCharTypeOpeningTag                         // <
 	ASTCharTypeClosingTag                         // >
+	ASTCharTYpeSpace                              // Space char
 	ASTCharTypeTagName                            // the tag name
 	ASTCharTypePropertyName                       // The name of the property
 	ASTCharTypePropertyEqual                      // =
