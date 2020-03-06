@@ -30,7 +30,7 @@ const (
 	CharTypeText            CharType = iota // part of text
 	CharTypeOpeningTag                      // <
 	CharTypeClosingTag                      // >
-	CharTYpeSpace                           // Space char
+	CharTypeSpace                           // Space char
 	CharTypeTagName                         // the tag name
 	CharTypePropertyName                    // The name of the property
 	CharTypePropertyEqual                   // =
