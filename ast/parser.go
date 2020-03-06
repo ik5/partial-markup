@@ -40,8 +40,9 @@ func Parser(text string) (*AST, error) {
 						(textRune[pos] >= '0' && textRune[pos] <= '9') ||
 						(textRune[pos] == '_') {
 						tagName = append(tagName, Char{
-							Pos:  pos,
-							Char: []byte(string(textRune[pos])),
+							Pos:      pos,
+							Char:     []byte(string(textRune[pos])),
+							CharType: CharTypeTagName,
 						})
 					}
 				}

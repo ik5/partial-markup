@@ -45,16 +45,19 @@ var simpleTags = []_checkStruct{
 				Symbol{
 					Chars: []Char{
 						Char{
-							Pos:  1,
-							Char: []byte(string("t")),
+							Pos:      1,
+							Char:     []byte(string("t")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  2,
-							Char: []byte(string("a")),
+							Pos:      2,
+							Char:     []byte(string("a")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  3,
-							Char: []byte(string("g")),
+							Pos:      3,
+							Char:     []byte(string("g")),
+							CharType: CharTypeTagName,
 						},
 					},
 					SymbolType: SymbolTypeTagName,
@@ -79,16 +82,19 @@ var simpleTags = []_checkStruct{
 				Symbol{
 					Chars: []Char{
 						Char{
-							Pos:  1,
-							Char: []byte(string("t")),
+							Pos:      1,
+							Char:     []byte(string("t")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  2,
-							Char: []byte(string("5")),
+							Pos:      2,
+							Char:     []byte(string("5")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  3,
-							Char: []byte(string("g")),
+							Pos:      3,
+							Char:     []byte(string("g")),
+							CharType: CharTypeTagName,
 						},
 					},
 					SymbolType: SymbolTypeTagName,
@@ -113,16 +119,19 @@ var simpleTags = []_checkStruct{
 				Symbol{
 					Chars: []Char{
 						Char{
-							Pos:  1,
-							Char: []byte(string("t")),
+							Pos:      1,
+							Char:     []byte(string("t")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  2,
-							Char: []byte(string("_")),
+							Pos:      2,
+							Char:     []byte(string("_")),
+							CharType: CharTypeTagName,
 						},
 						Char{
-							Pos:  3,
-							Char: []byte(string("g")),
+							Pos:      3,
+							Char:     []byte(string("g")),
+							CharType: CharTypeTagName,
 						},
 					},
 					SymbolType: SymbolTypeTagName,
