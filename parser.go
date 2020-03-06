@@ -3,6 +3,8 @@ package partialmarkup
 import (
 	"errors"
 	"strings"
+
+	"github.com/ik5/parital-markup/ast"
 )
 
 // Parse parses a given document and return a scan tree of Document
@@ -13,12 +15,13 @@ func Parse(document string) (*Document, error) {
 		return nil, errors.New("document cannot be empty")
 	}
 
-	// docLen := len(document)
-
 	result := &Document{
 		RawDocument: document,
 		Root:        &Block{},
 	}
 
-	return result, nil
+	// TODO parse *AST and convert it to Document
+	_, err := ast.Parser(document)
+
+	return result, err
 }
