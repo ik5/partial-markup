@@ -1,31 +1,33 @@
 package partialmarkup
 
 const (
-	openingTag byte = 0x3C // <
+	openingTag = '<'
 )
 
 // ASTParser parse each given char and generate a list of symbols
 func ASTParser(text string) (*AST, error) {
 	var result AST
 
-	textLen := len(text)
+	textRune := []rune(text)
+	textLen := len(textRune)
 	for pos := 0; pos < textLen; pos++ {
-		switch text[pos] {
+		switch textRune[pos] {
 		case openingTag:
-			var chars []ASTChar
-			var symbol ASTSymbol
-			chars = append(chars, ASTChar{
-				Pos:      pos,
-				Char:     []byte{openingTag},
-				CharType: ASTCharTypeOpeningTag,
-			})
-			symbol = ASTSymbol{
-				Chars:      chars,
+			result.Symbols = append(result.Symbols, ASTSymbol{
+				Chars: []ASTChar{
+					ASTChar{
+						Pos:      pos,
+						Char:     []byte{byte(textRune[pos])},
+						CharType: ASTCharTypeOpeningTag,
+					},
+				},
 				SymbolType: ASTSymbolTypeTagOpen,
-			}
-			result.Symbols = append(result.Symbols, symbol)
+			})
 
-			for pos = pos; pos < textLen; pos++ {
+			for pos++; pos < textLen; pos++ {
+				switch textRune[pos] {
+
+				}
 			}
 		default:
 		}
