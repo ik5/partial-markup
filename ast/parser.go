@@ -1,11 +1,11 @@
-package partialmarkup
+package ast
 
 const (
 	openingTag = '<'
 )
 
-// ASTParser parse each given char and generate a list of symbols
-func ASTParser(text string) (*AST, error) {
+// Parser parse each given char and generate a list of symbols
+func Parser(text string) (*AST, error) {
 	var result AST
 
 	textRune := []rune(text)
@@ -13,15 +13,15 @@ func ASTParser(text string) (*AST, error) {
 	for pos := 0; pos < textLen; pos++ {
 		switch textRune[pos] {
 		case openingTag:
-			result.Symbols = append(result.Symbols, ASTSymbol{
-				Chars: []ASTChar{
-					ASTChar{
+			result.Symbols = append(result.Symbols, Symbol{
+				Chars: []Char{
+					Char{
 						Pos:      pos,
 						Char:     []byte{byte(textRune[pos])},
-						CharType: ASTCharTypeOpeningTag,
+						CharType: CharTypeOpeningTag,
 					},
 				},
-				SymbolType: ASTSymbolTypeTagOpen,
+				SymbolType: SymbolTypeTagOpen,
 			})
 
 			for pos++; pos < textLen; pos++ {

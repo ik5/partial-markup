@@ -1,4 +1,4 @@
-package partialmarkup
+package ast
 
 import (
 	"reflect"
@@ -16,16 +16,16 @@ func TestSimpleTags(t *testing.T) {
 		_checkStruct{
 			input: "<",
 			expected: &AST{
-				Symbols: []ASTSymbol{
+				Symbols: []Symbol{
 					{
-						Chars: []ASTChar{
-							ASTChar{
+						Chars: []Char{
+							Char{
 								Pos:      0,
 								Char:     []byte("<"),
-								CharType: ASTCharTypeOpeningTag,
+								CharType: CharTypeOpeningTag,
 							},
 						},
-						SymbolType: ASTSymbolTypeTagOpen,
+						SymbolType: SymbolTypeTagOpen,
 					},
 				},
 			},
@@ -33,7 +33,7 @@ func TestSimpleTags(t *testing.T) {
 	}
 
 	for _, astTag := range simpleTags {
-		ast, err := ASTParser(astTag.input)
+		ast, err := Parser(astTag.input)
 		if err != nil {
 			t.Errorf("Error while running input: %s: %s", astTag.input, err)
 		}
