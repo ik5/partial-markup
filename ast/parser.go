@@ -16,18 +16,6 @@ func Parser(text string) (*AST, error) {
 	textLen := len(textRune)
 	for pos := 0; pos < textLen; pos++ {
 		switch textRune[pos] {
-		case closeSlash:
-			result.Symbols = append(result.Symbols, Symbol{
-				Chars: []Char{
-					Char{
-						Pos:      pos,
-						Char:     []byte(string(textRune[pos])),
-						CharType: CharTypeTagClosingSlash,
-					},
-				},
-				SymbolType: SymbolTypeTagClosed,
-			})
-			continue
 		case openingTag:
 			result.Symbols = append(result.Symbols, Symbol{
 				Chars: []Char{
@@ -45,6 +33,17 @@ func Parser(text string) (*AST, error) {
 			// Get the name of the tag
 			for pos++; pos < textLen; pos++ {
 				switch textRune[pos] {
+				case closeSlash:
+					result.Symbols = append(result.Symbols, Symbol{
+						Chars: []Char{
+							Char{
+								Pos:      pos,
+								Char:     []byte(string(textRune[pos])),
+								CharType: CharTypeTagClosingSlash,
+							},
+						},
+						SymbolType: SymbolTypeTagClosed,
+					})
 				case space, tab, closingTag: // white space
 					break tagNameLoop
 				default:
