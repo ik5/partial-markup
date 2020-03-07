@@ -5,6 +5,7 @@ const (
 	closingTag = '>'
 	space      = ' '
 	tab        = '\t'
+	closeSlash = '/'
 )
 
 // Parser parse each given char and generate a list of symbols
