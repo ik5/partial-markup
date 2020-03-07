@@ -26,29 +26,29 @@ type AST struct {
 
 // The type of char that currently processed
 const (
-	CharTypeUnsupported     CharType = -1       // Unsupported/known char
-	CharTypeText            CharType = iota - 1 // part of text
-	CharTypeOpeningTag                          // <
-	CharTypeClosingTag                          // >
-	CharTypeSpace                               // Space char
-	CharTypeTagName                             // the tag name
-	CharTypePropertyName                        // The name of the property
-	CharTypePropertyEqual                       // =
-	CharTypePropertyOpening                     // Double Quote
-	CharTypePropertyClosing                     // Double Quote
-	CharTypePropertyValue                       // The content of the property
-	CharTypeTagTextContent                      // The inner text content of a tag
-	CharTypeTagClosingSlash                     // the "/" char
+	CharTypeUnsupported     CharType = iota // Unsupported/known char
+	CharTypeText                            // part of text
+	CharTypeOpeningTag                      // <
+	CharTypeClosingTag                      // >
+	CharTypeSpace                           // Space char
+	CharTypeTagName                         // the tag name
+	CharTypePropertyName                    // The name of the property
+	CharTypePropertyEqual                   // =
+	CharTypePropertyOpening                 // Double Quote
+	CharTypePropertyClosing                 // Double Quote
+	CharTypePropertyValue                   // The content of the property
+	CharTypeTagTextContent                  // The inner text content of a tag
+	CharTypeTagClosingSlash                 // the "/" char
 )
 
 // The type of symbol
 const (
-	SymbolTypeUnsupported   SymbolType = -1       // Unknown/supported tag
-	SymbolTypeText          SymbolType = iota - 1 // External text of a tag
-	SymbolTypeTagOpen                             // <tag>
-	SymbolTypeTagName                             // tag
-	SymbolTypePropertyName                        // a property name
-	SymbolTypePropertyValue                       // property value
-	SymbolTypeTagInnerText                        // tag inner text
-	SymbolTypeTagClosed                           // closed tag </tag>
+	SymbolTypeUnsupported   SymbolType = iota // Unknown/supported tag
+	SymbolTypeText                            // External text of a tag
+	SymbolTypeTagOpen                         // <tag>
+	SymbolTypeTagName                         // tag
+	SymbolTypePropertyName                    // a property name
+	SymbolTypePropertyValue                   // property value
+	SymbolTypeTagInnerText                    // tag inner text
+	SymbolTypeTagClosed                       // closed tag </tag>
 )

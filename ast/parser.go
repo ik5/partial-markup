@@ -44,6 +44,7 @@ func Parser(text string) (*AST, error) {
 						},
 						SymbolType: SymbolTypeTagClosed,
 					})
+					continue
 				case space, tab, closingTag: // white space
 					break tagNameLoop
 				default:

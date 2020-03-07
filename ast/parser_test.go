@@ -159,11 +159,12 @@ var simpleTags = []_checkStruct{
 						Char{
 							Pos:      1,
 							Char:     []byte(string("/")),
-							CharType: CharTypeOpeningTag,
+							CharType: CharTypeTagClosingSlash,
 						},
 					},
 				},
 				Symbol{
+					SymbolType: SymbolTypeTagName,
 					Chars: []Char{
 						Char{
 							Pos:      2,
