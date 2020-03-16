@@ -1,5 +1,5 @@
 
 test:
-	test -v -tags -cover -coverprofile=coverage.out ./...
+	go test -v -tags -cover -coverprofile=coverage.out ./...
 
 
