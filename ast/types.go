@@ -45,8 +45,9 @@ const (
 const (
 	SymbolTypeUnsupported   SymbolType = iota // Unknown/supported tag
 	SymbolTypeText                            // External text of a tag
-	SymbolTypeTagOpen                         // <tag>
-	SymbolTypeTagName                         // tag
+	SymbolTypeTagOpen                         // <
+	SymbolTypeTagEnd                          // >
+	SymbolTypeTagName                         // <name
 	SymbolTypePropertyName                    // a property name
 	SymbolTypePropertyValue                   // property value
 	SymbolTypeTagInnerText                    // tag inner text

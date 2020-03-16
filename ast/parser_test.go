@@ -5,13 +5,13 @@ import (
 	"testing"
 )
 
-type _checkStruct struct {
+type _tagTestStruct struct {
 	input    string
 	expected *AST
 }
 
-var simpleTags = []_checkStruct{
-	_checkStruct{
+var simpleTags = []_tagTestStruct{
+	_tagTestStruct{
 		input: "<",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -28,7 +28,7 @@ var simpleTags = []_checkStruct{
 			},
 		},
 	},
-	_checkStruct{
+	_tagTestStruct{
 		input: "<tag",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -65,7 +65,7 @@ var simpleTags = []_checkStruct{
 			},
 		},
 	},
-	_checkStruct{
+	_tagTestStruct{
 		input: "<t5g",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -102,7 +102,7 @@ var simpleTags = []_checkStruct{
 			},
 		},
 	},
-	_checkStruct{
+	_tagTestStruct{
 		input: "<t_g",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -139,7 +139,7 @@ var simpleTags = []_checkStruct{
 			},
 		},
 	},
-	_checkStruct{
+	_tagTestStruct{
 		input: "</tag",
 		expected: &AST{
 			Symbols: []Symbol{

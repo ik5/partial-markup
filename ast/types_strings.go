@@ -27,7 +27,7 @@ func (c CharType) String() string {
 	case CharTypeTagTextContent:
 		return "#text"
 	case CharTypeTagClosingSlash:
-		return "closing tag"
+		return "closing slash"
 	default:
 		return fmt.Sprintf("unknown (%d)", c)
 	}
@@ -41,6 +41,8 @@ func (s SymbolType) String() string {
 		return "text"
 	case SymbolTypeTagOpen:
 		return "tag open"
+	case SymbolTypeTagEnd:
+		return "tag end"
 	case SymbolTypeTagName:
 		return "tag name"
 	case SymbolTypePropertyName:
