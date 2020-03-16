@@ -16,6 +16,19 @@ func Parser(text string) (*AST, error) {
 	textLen := len(textRune)
 	for pos := 0; pos < textLen; pos++ {
 		switch textRune[pos] {
+		case space:
+			// TODO: Make this part smarter, if there is a text, it should not enter
+			// here
+			result.Symbols = append(result.Symbols, Symbol{
+				SymbolType: SymbolTypeTagWhitespace,
+				Chars: []Char{
+					Char{
+						Pos:      pos,
+						Char:     []byte(string(textRune[pos])),
+						CharType: CharTypeSpace,
+					},
+				},
+			})
 		case closingTag:
 			result.Symbols = append(result.Symbols, Symbol{
 				SymbolType: SymbolTypeTagEnd,
@@ -58,18 +71,10 @@ func Parser(text string) (*AST, error) {
 					})
 					continue
 				case space, tab: // white space
+					pos-- // do not handle this code here
 					break tagNameLoop
 				case closingTag:
-					result.Symbols = append(result.Symbols, Symbol{
-						Chars: []Char{
-							Char{
-								Pos:      pos,
-								Char:     []byte(string(textRune[pos])),
-								CharType: CharTypeTagClosingSlash,
-							},
-						},
-						SymbolType: SymbolTypeTagClosed,
-					})
+					pos-- // do not handle this tag here
 					break tagNameLoop
 				default:
 					if (textRune[pos] >= 'a' && textRune[pos] <= 'z') ||

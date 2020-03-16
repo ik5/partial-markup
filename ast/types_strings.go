@@ -53,6 +53,8 @@ func (s SymbolType) String() string {
 		return "inner text"
 	case SymbolTypeTagClosed:
 		return "tag closed"
+	case SymbolTypeTagWhitespace:
+		return "whitespace"
 	default:
 		return fmt.Sprintf("unknown (%d)", s)
 	}

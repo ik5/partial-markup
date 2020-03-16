@@ -108,6 +108,10 @@ var symbolTypes = []_symboleTypeTestStruct{
 		input:    SymbolTypeTagClosed,
 		expected: "tag closed",
 	},
+	_symboleTypeTestStruct{
+		input:    SymbolTypeTagWhitespace,
+		expected: "whitespace",
+	},
 }
 
 func TestCharTypeString(t *testing.T) {

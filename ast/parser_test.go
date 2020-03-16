@@ -186,6 +186,110 @@ var simpleTags = []_tagTestStruct{
 			},
 		},
 	},
+	_tagTestStruct{
+		input: "<tag>",
+		expected: &AST{
+			Symbols: []Symbol{
+				Symbol{
+					Chars: []Char{
+						Char{
+							Pos:      0,
+							Char:     []byte("<"),
+							CharType: CharTypeOpeningTag,
+						},
+					},
+					SymbolType: SymbolTypeTagOpen,
+				},
+				Symbol{
+					Chars: []Char{
+						Char{
+							Pos:      1,
+							Char:     []byte(string("t")),
+							CharType: CharTypeTagName,
+						},
+						Char{
+							Pos:      2,
+							Char:     []byte(string("a")),
+							CharType: CharTypeTagName,
+						},
+						Char{
+							Pos:      3,
+							Char:     []byte(string("g")),
+							CharType: CharTypeTagName,
+						},
+					},
+					SymbolType: SymbolTypeTagName,
+				},
+				Symbol{
+					SymbolType: SymbolTypeTagEnd,
+					Chars: []Char{
+						Char{
+							Pos:      4,
+							Char:     []byte(string(">")),
+							CharType: CharTypeClosingTag,
+						},
+					},
+				},
+			},
+		},
+	},
+	_tagTestStruct{
+		input: "<tag >",
+		expected: &AST{
+			Symbols: []Symbol{
+				Symbol{
+					Chars: []Char{
+						Char{
+							Pos:      0,
+							Char:     []byte("<"),
+							CharType: CharTypeOpeningTag,
+						},
+					},
+					SymbolType: SymbolTypeTagOpen,
+				},
+				Symbol{
+					Chars: []Char{
+						Char{
+							Pos:      1,
+							Char:     []byte(string("t")),
+							CharType: CharTypeTagName,
+						},
+						Char{
+							Pos:      2,
+							Char:     []byte(string("a")),
+							CharType: CharTypeTagName,
+						},
+						Char{
+							Pos:      3,
+							Char:     []byte(string("g")),
+							CharType: CharTypeTagName,
+						},
+					},
+					SymbolType: SymbolTypeTagName,
+				},
+				Symbol{
+					SymbolType: SymbolTypeTagWhitespace,
+					Chars: []Char{
+						Char{
+							Pos:      4,
+							Char:     []byte(string(" ")),
+							CharType: CharTypeSpace,
+						},
+					},
+				},
+				Symbol{
+					SymbolType: SymbolTypeTagEnd,
+					Chars: []Char{
+						Char{
+							Pos:      5,
+							Char:     []byte(string(">")),
+							CharType: CharTypeClosingTag,
+						},
+					},
+				},
+			},
+		},
+	},
 }
 
 func TestSimpleTags(t *testing.T) {

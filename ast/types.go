@@ -52,4 +52,5 @@ const (
 	SymbolTypePropertyValue                   // property value
 	SymbolTypeTagInnerText                    // tag inner text
 	SymbolTypeTagClosed                       // closed tag </tag>
+	SymbolTypeTagWhitespace                   // whitespace
 )
