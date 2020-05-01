@@ -1,17 +1,20 @@
 package ast
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
 
 type _tagTestStruct struct {
+	desc     string
 	input    string
 	expected *AST
 }
 
 var simpleTags = []_tagTestStruct{
 	_tagTestStruct{
+		desc:  "opening tag char",
 		input: "<",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -29,6 +32,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "opening tag char and tag name",
 		input: "<tag",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -66,6 +70,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "opening tag char with tag name and number inside",
 		input: "<t5g",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -103,6 +108,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "Opening tag char and tag name with underscore",
 		input: "<t_g",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -140,6 +146,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "opening tag char, closing char and tag name",
 		input: "</tag",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -187,6 +194,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "opening tag char, tag name and close tag char",
 		input: "<tag>",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -234,6 +242,7 @@ var simpleTags = []_tagTestStruct{
 		},
 	},
 	_tagTestStruct{
+		desc:  "opening tag char, tag name, space and close tag char ",
 		input: "<tag >",
 		expected: &AST{
 			Symbols: []Symbol{
@@ -295,6 +304,10 @@ var simpleTags = []_tagTestStruct{
 func TestSimpleTags(t *testing.T) {
 
 	for _, astTag := range simpleTags {
+		if testing.Verbose() {
+			fmt.Printf("Going on '%s'\n\t%s\n", astTag.input, astTag.desc)
+		}
+
 		ast, err := Parser(astTag.input)
 		if err != nil {
 			t.Errorf("Error while running input: %s: %s", astTag.input, err)
